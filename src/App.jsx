@@ -1,15 +1,21 @@
 import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import About from "./sections/About";
+import Contact from "./sections/Contact";
 import Home from "./sections/Home";
 import Projects from "./sections/Projects";
 
+const normalizePath = (value) => {
+  const normalized = value.replace(/\/+$/, "");
+  return normalized || "/";
+};
+
 function App() {
-  const [path, setPath] = useState(window.location.pathname);
+  const [path, setPath] = useState(normalizePath(window.location.pathname));
 
   useEffect(() => {
     const handlePopState = () => {
-      setPath(window.location.pathname);
+      setPath(normalizePath(window.location.pathname));
       window.scrollTo({ top: 0, behavior: "instant" });
     };
 
@@ -19,10 +25,12 @@ function App() {
   }, []);
 
   const navigate = (to) => {
-    if (to === path) return;
+    const nextPath = normalizePath(to);
 
-    window.history.pushState({}, "", to);
-    setPath(to);
+    if (nextPath === path) return;
+
+    window.history.pushState({}, "", nextPath);
+    setPath(nextPath);
     window.scrollTo({ top: 0, behavior: "instant" });
   };
 
@@ -33,6 +41,8 @@ function App() {
         <About />
       ) : path === "/projects" ? (
         <Projects />
+      ) : path === "/contact" ? (
+        <Contact />
       ) : (
         <Home onNavigate={navigate} />
       )}

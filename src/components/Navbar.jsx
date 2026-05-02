@@ -24,12 +24,18 @@ export default function Navbar({ currentPath = "/", onNavigate }) {
 
   const goToPage = (event, path) => {
     event.preventDefault();
-    onNavigate?.(path);
+    if (onNavigate) {
+      onNavigate(path);
+      return;
+    }
+
+    window.location.assign(path);
   };
 
   const isHome = currentPath === "/";
   const isAbout = currentPath === "/about";
   const isProjects = currentPath === "/projects";
+  const isContact = currentPath === "/contact";
 
   return (
     <header className="site-header fixed top-0 left-0 z-50 w-full px-4 py-4 md:px-5 md:py-5">
@@ -74,7 +80,12 @@ export default function Navbar({ currentPath = "/", onNavigate }) {
             {isProjects && <span className="nav-dot h-2 w-2 rounded-full bg-[var(--accent)]"></span>}
             Projects
           </a>
-          <a href="/#contact" className="nav-link hover:text-[var(--text)]">
+          <a
+            href="/contact"
+            onClick={(event) => goToPage(event, "/contact")}
+            className={`nav-link flex items-center gap-2 ${isContact ? "is-active text-[var(--text)]" : "hover:text-[var(--text)]"}`}
+          >
+            {isContact && <span className="nav-dot h-2 w-2 rounded-full bg-[var(--accent)]"></span>}
             Contact
           </a>
         </div>

@@ -265,6 +265,13 @@ p {
     transform 0.45s ease;
 }
 
+.project-cover-image-soul {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-position: left top;
+}
+
 .group:hover .project-cover-image,
 .project-tile:hover .project-cover-image {
   transform: scale(1.025);
@@ -900,6 +907,156 @@ p {
   padding-top: clamp(2rem, 4vw, 3rem);
 }
 
+.contact-page {
+  min-height: 100vh;
+  padding: 6.5rem 1.5rem 2rem;
+}
+
+.contact-shell {
+  display: grid;
+  width: min(100%, 68rem);
+  margin-inline: auto;
+  gap: clamp(1.2rem, 2.4vw, 2rem);
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.78fr);
+  align-items: end;
+}
+
+.contact-form-panel h1 {
+  max-width: 28rem;
+  margin-top: 0.75rem;
+  color: var(--text);
+  font-size: clamp(2rem, 3.2vw, 3.25rem);
+  font-weight: 520;
+  letter-spacing: 0;
+  line-height: 1.04;
+}
+
+.contact-form {
+  display: grid;
+  gap: 0.82rem;
+  margin-top: clamp(1.25rem, 2.2vw, 1.8rem);
+}
+
+.contact-form label {
+  display: grid;
+  gap: 0.42rem;
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 560;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  outline: 0;
+  background: transparent;
+  padding: 0.62rem 0.82rem;
+  color: var(--text);
+  font: inherit;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.contact-form input {
+  min-height: 2.35rem;
+}
+
+.contact-form textarea {
+  min-height: 5.1rem;
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: color-mix(in srgb, var(--accent) 50%, var(--border));
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+.contact-form .fill-button {
+  margin-top: 0.1rem;
+}
+
+.contact-form .fill-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.68;
+  transform: none;
+}
+
+.contact-status {
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.contact-status-success {
+  color: var(--accent);
+}
+
+.contact-status-error {
+  color: #ff6b6b;
+}
+
+.contact-info-card {
+  border: 1px solid color-mix(in srgb, var(--border) 62%, transparent);
+  border-radius: 20px;
+  background: color-mix(in srgb, var(--card) 94%, var(--text) 3%);
+  padding: clamp(1.05rem, 2vw, 1.5rem);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.16);
+}
+
+.contact-info-card .availability-badge {
+  background: color-mix(in srgb, var(--accent-soft) 70%, var(--card));
+}
+
+.contact-avatar {
+  width: 4.4rem;
+  height: 4.4rem;
+  margin-top: 1rem;
+  border: 6px solid color-mix(in srgb, var(--text) 92%, var(--card));
+  border-radius: 999px;
+  object-fit: cover;
+  outline: 1px solid var(--border);
+  outline-offset: 5px;
+}
+
+.contact-note {
+  max-width: 30rem;
+  margin-top: 1.15rem;
+  color: var(--muted);
+  font-size: clamp(0.82rem, 0.95vw, 0.96rem);
+  line-height: 1.5;
+}
+
+.contact-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+
+.contact-socials a {
+  display: inline-grid;
+  place-items: center;
+  color: var(--muted);
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.contact-socials a:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.contact-socials svg {
+  width: 1rem;
+  height: 1rem;
+  stroke-width: 2.1;
+}
+
 .projects-page {
   width: min(100%, 96rem);
   margin-inline: auto;
@@ -1315,6 +1472,10 @@ p {
 }
 
 @media (max-width: 900px) {
+  .contact-shell {
+    grid-template-columns: 1fr;
+  }
+
   .about-hero,
   .about-split {
     grid-template-columns: 1fr;

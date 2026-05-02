@@ -20,6 +20,7 @@ import {
   Sparkle,
   Workflow,
 } from "lucide-react";
+import portfolioCover from "../assets/Portfolio.png";
 import soulFmCover from "../assets/SoulFm.png";
 import taaraCover from "../assets/taara.png";
 
@@ -43,6 +44,7 @@ const projects = [
     bg: "bg-[#9f3f2f]",
     preview: "audio",
     image: soulFmCover,
+    imageClassName: "project-cover-image-soul",
     url: "https://www.soulfmlive.com/",
   },
   {
@@ -82,9 +84,11 @@ const projects = [
   {
     title: "Portfolio Website",
     year: "2026",
-    tags: ["React", "HTML5", "Tailwind CSS", "Node.js", "Git"],
+    tags: ["React", "HTML5", "Tailwind CSS", "Node.js", "Git", "Vercel"],
     bg: "bg-[#bdeee6]",
     preview: "portfolio",
+    image: portfolioCover,
+    url: "https://duyanjanine.vercel.app/",
   },
 ];
 
@@ -359,7 +363,7 @@ export default function Home({ onNavigate }) {
                   <img
                     src={p.image}
                     alt={`${p.title} cover`}
-                    className="project-cover-image"
+                    className={`project-cover-image ${p.imageClassName ?? ""}`}
                   />
                 ) : (
                   <ProjectMockup type={p.preview} title={p.title} />

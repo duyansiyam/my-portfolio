@@ -12,12 +12,13 @@ const projects = [
     tone: "project-rust",
     mockup: "phones",
     image: soulFmCover,
+    imageClassName: "project-cover-image-soul",
     url: "https://www.soulfmlive.com/",
   },
   {
     title: "Code Screenshot",
     category: "Development",
-    year: "2024",
+    year: "2025",
     tone: "project-pink",
     mockup: "code",
     image: sourceCover,
@@ -103,7 +104,7 @@ export default function Projects() {
                 <img
                   src={project.image}
                   alt={`${project.title} cover`}
-                  className="project-cover-image"
+                  className={`project-cover-image ${project.imageClassName ?? ""}`}
                 />
               ) : (
                 <ProjectVisual type={project.mockup} />
