@@ -36,7 +36,7 @@ export default async function handler(request, response) {
     process.env.RESEND_FROM_EMAIL ?? "Portfolio Contact <onboarding@resend.dev>";
 
   try {
-    await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: senderEmail,
       to: recipientEmail,
       replyTo: trimmedEmail,
@@ -52,7 +52,17 @@ export default async function handler(request, response) {
       `,
     });
 
-    return response.status(200).json({ ok: true });
+    if (error) {
+      console.error("Resend contact error:", error);
+
+      return response.status(500).json({
+        error: "Unable to send your message right now.",
+      });
+    }
+
+    console.log("Resend contact email sent:", data?.id);
+
+    return response.status(200).json({ ok: true, id: data?.id });
   } catch (error) {
     console.error("Resend contact error:", error);
 
