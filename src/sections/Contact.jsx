@@ -1,38 +1,22 @@
 import { useState } from "react";
 import {
-  AtSign,
-  Code2,
-  Globe,
   Mail,
   MessageCircle,
   Sparkle,
 } from "lucide-react";
 import aboutPortrait from "../assets/Portfolio.png";
 
-const contactLinks = [
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/",
-    icon: <AtSign />,
-  },
-  {
-    label: "GitHub",
-    href: "https://github.com/duyansiyam",
-    icon: <Code2 />,
-  },
-  {
-    label: "Instagram",
-    href: "https://www.instagram.com/im_jaja9/",
-    icon: <Globe />,
-  },
+const contactDetails = [
   {
     label: "Email",
     href: "mailto:duyanjanine@gmail.com",
+    value: "duyanjanine@gmail.com",
     icon: <Mail />,
   },
   {
-    label: "Message",
-    href: "mailto:duyanjanine@gmail.com",
+    label: "Contact",
+    href: "tel:09936639774",
+    value: "09936639774",
     icon: <MessageCircle />,
   },
 ];
@@ -139,15 +123,15 @@ export default function Contact() {
           </p>
 
           <div className="contact-socials">
-            {contactLinks.map((link) => (
+            {contactDetails.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                target={link.href.startsWith("http") ? "_blank" : undefined}
-                rel={link.href.startsWith("http") ? "noreferrer" : undefined}
                 aria-label={link.label}
+                title={link.value}
               >
                 {link.icon}
+                <span>{link.value}</span>
               </a>
             ))}
           </div>

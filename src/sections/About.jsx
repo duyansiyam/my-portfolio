@@ -74,7 +74,7 @@ const awards = [
   },
 ];
 
-export default function About() {
+export default function About({ onNavigate }) {
   useEffect(() => {
     const revealItems = document.querySelectorAll(".reveal");
 
@@ -95,6 +95,11 @@ export default function About() {
     return () => observer.disconnect();
   }, []);
 
+  const openContactPage = (event) => {
+    event.preventDefault();
+    onNavigate?.("/contact");
+  };
+
   return (
     <main className="about-page page-bg">
       <section className="about-hero reveal">
@@ -104,7 +109,12 @@ export default function About() {
             alt="Janine Duyan portrait"
           />
 
-          <a href="#contact" className="talk-badge" aria-label="Let's talk">
+          <a
+            href="/contact"
+            onClick={openContactPage}
+            className="talk-badge"
+            aria-label="Let's talk"
+          >
             <svg className="talk-ring" viewBox="0 0 120 120" aria-hidden="true">
               <defs>
                 <path
@@ -132,7 +142,7 @@ export default function About() {
             goals.
           </p>
           <a
-            href="/Janine Duyan_CV.pdf"
+            href="/Resume_Duyab.pdf"
             target="_blank"
             rel="noreferrer"
             className="fill-button fill-button-compact"
@@ -223,7 +233,7 @@ export default function About() {
             Let's create your next big idea.
           </h2>
 
-          <a href="mailto:hello@example.com" className="fill-button mt-10">
+          <a href="/contact" onClick={openContactPage} className="fill-button mt-10">
             <span>Contact Me</span>
           </a>
         </div>

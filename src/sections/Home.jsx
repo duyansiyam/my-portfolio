@@ -21,7 +21,6 @@ import {
   Workflow,
 } from "lucide-react";
 import portfolioCover from "../assets/Portfolio.png";
-import soulFmCover from "../assets/SoulFm.png";
 import taaraCover from "../assets/taara.png";
 
 const highlightText =
@@ -43,8 +42,6 @@ const projects = [
     ],
     bg: "bg-[#9f3f2f]",
     preview: "audio",
-    image: soulFmCover,
-    imageClassName: "project-cover-image-soul",
     url: "https://www.soulfmlive.com/",
   },
   {
@@ -123,18 +120,43 @@ const expertise = [
 
 const testimonials = [
   {
-    name: "Trusha Neogi",
-    role: "UI/UX Design Intern",
-    handle: "@Hexcoderz",
-    initials: "TN",
-    text: "Janine is not only an exceptional UI/UX designer but also a proficient developer. Her projects are impressive and show strong design thinking, clean execution, and the ability to work beautifully in a team setting.",
+    name: "Jeremiah Tardy",
+    role: "Just Doin' It Entertainment owner",
+    handle: "",
+    initials: "JT",
+    shortText:
+      "I have had the pleasure of meeting and working with this young lady on several occasions. However, there is one project that stands out. Ms. Duyan recreated my website called Soul FM. In a matter of days she fixed...",
+    fullText:
+      "I have had the pleasure of meeting and working with this young lady on several occasions. However, there is one project that stands out. Ms. Duyan recreated my website called Soul FM. In a matter of days she fixed, managed, launched my site and had it running correctly. Her professionalism, willingness to provide a high standard of quality of service is outstanding.",
   },
   {
-    name: "Project Partner",
-    role: "System Development",
-    handle: "@TAARA",
-    initials: "PP",
-    text: "She understands both interface design and development very well. The final output was responsive, easy to use, and carefully built around the needs of the users.",
+    name: "Ednalyn De Lara",
+    role: "TAARA Chairperson",
+    handle: "",
+    initials: "ED",
+    shortText: [
+      "TAIL WAGS AND SNUGGLES GALORE! 🐶💗",
+      "As a heartfelt appreciation to our generous donors for making a difference in the lives of our rescues, we proudly present the faces of TAARA...",
+    ],
+    fullText: [
+      "TAIL WAGS AND SNUGGLES GALORE! 🐶💗",
+      "As a heartfelt appreciation to our generous donors for making a difference in the lives of our rescues, we proudly present the faces of TAARA. 🐾💕",
+      "From our rescues' wagging hearts to yours - thank you, thank you, THANK YOU!",
+      "Your kindness creates a truly pawsitive impact in the lives of our beloved animals. 🐶🐱🐾",
+      "We would also like to extend our sincere gratitude to Ms. Janine Duyan, Polytechnic Institute of Tabaco, for her valuable contribution in developing the TAARA application, helping improve our adoption process and support system for our rescues. 💻🐾",
+    ],
+  },
+  {
+    name: "Kim Ian Sabalberino",
+    role: "Quanby Solutions - WordPress Supervisor",
+    handle: "",
+    initials: "KS",
+    shortText:
+      "Janine Duyan demonstrates strong skills in WordPress development, with a solid understanding of both design and functionality. As a WordPress Developer Intern, she effectively built and customized responsive websites...",
+    fullText: [
+      "Janine Duyan demonstrates strong skills in WordPress development, with a solid understanding of both design and functionality. As a WordPress Developer Intern, she effectively built and customized responsive websites, ensuring user-friendly interfaces and optimized performance.",
+      "Her work reflects attention to detail, problem-solving ability, and a commitment to delivering quality results aligned with client and user needs. She also shows initiative in learning new tools and continuously improving her development workflow throughout her internship.",
+    ],
   },
 ];
 
@@ -162,6 +184,7 @@ export default function Home({ onNavigate }) {
   const [aboutProgress, setAboutProgress] = useState(0);
   const [activeExpertise, setActiveExpertise] = useState(null);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [isTestimonialExpanded, setIsTestimonialExpanded] = useState(false);
   const [isWaving, setIsWaving] = useState(false);
   const testimonial = testimonials[activeTestimonial];
 
@@ -205,12 +228,14 @@ export default function Home({ onNavigate }) {
   }, []);
 
   const showPreviousTestimonial = () => {
+    setIsTestimonialExpanded(false);
     setActiveTestimonial((current) =>
       current === 0 ? testimonials.length - 1 : current - 1
     );
   };
 
   const showNextTestimonial = () => {
+    setIsTestimonialExpanded(false);
     setActiveTestimonial((current) =>
       current === testimonials.length - 1 ? 0 : current + 1
     );
@@ -219,6 +244,11 @@ export default function Home({ onNavigate }) {
   const openAboutPage = (event) => {
     event.preventDefault();
     onNavigate?.("/about");
+  };
+
+  const openContactPage = (event) => {
+    event.preventDefault();
+    onNavigate?.("/contact");
   };
 
   const waveHand = () => {
@@ -493,23 +523,66 @@ export default function Home({ onNavigate }) {
           </div>
 
           <div>
-            <article className="testimonial-card">
-              <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
-                <div className="testimonial-avatar">{testimonial.initials}</div>
+            <article
+              className={`testimonial-card ${
+                isTestimonialExpanded ? "testimonial-card-expanded" : ""
+              }`}
+            >
+              <div className="testimonial-profile">
                 <div>
-                  <h3 className="text-xl font-medium">{testimonial.name}</h3>
-                  <p className="mt-1 text-base text-muted">
-                    {testimonial.role} {testimonial.handle}
+                  <h3 className="testimonial-name">{testimonial.name}</h3>
+                  <p className="testimonial-role">
+                    {testimonial.role}
+                    {testimonial.handle ? ` ${testimonial.handle}` : ""}
                   </p>
                 </div>
               </div>
 
-              <p className="mt-8 text-base leading-7 text-muted md:text-lg md:leading-8">
-                {testimonial.text}{" "}
-                <a href="#contact" className="font-medium text-[var(--text)]">
-                  see more
-                </a>
-              </p>
+              <div className="testimonial-copy">
+                {Array.isArray(
+                  isTestimonialExpanded
+                    ? testimonial.fullText
+                    : testimonial.shortText
+                ) ? (
+                  (isTestimonialExpanded
+                    ? testimonial.fullText
+                    : testimonial.shortText
+                  ).map((paragraph, index, paragraphs) => (
+                    <p key={paragraph}>
+                      {paragraph}
+                      {index === paragraphs.length - 1 && (
+                        <>
+                          {" "}
+                          <button
+                            type="button"
+                            className="testimonial-toggle"
+                            onClick={() =>
+                              setIsTestimonialExpanded((current) => !current)
+                            }
+                          >
+                            {isTestimonialExpanded ? "show less" : "see more"}
+                          </button>
+                        </>
+                      )}
+                    </p>
+                  ))
+                ) : (
+                  <p>
+                    {isTestimonialExpanded
+                      ? testimonial.fullText
+                      : testimonial.shortText}{" "}
+                    <button
+                      type="button"
+                      className="testimonial-toggle"
+                      onClick={() =>
+                        setIsTestimonialExpanded((current) => !current)
+                      }
+                    >
+                      {isTestimonialExpanded ? "show less" : "see more"}
+                    </button>
+                  </p>
+                )}
+              </div>
             </article>
 
             <div className="mt-8 flex justify-end">
@@ -552,7 +625,8 @@ export default function Home({ onNavigate }) {
           </h2>
 
           <a
-            href="mailto:hello@example.com"
+            href="/contact"
+            onClick={openContactPage}
             className="fill-button mt-10"
           >
             <span>Contact Me</span>

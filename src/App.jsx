@@ -38,7 +38,7 @@ function App() {
     <>
       <Navbar currentPath={path} onNavigate={navigate} />
       {path === "/about" ? (
-        <About />
+        <About onNavigate={navigate} />
       ) : path === "/projects" ? (
         <Projects />
       ) : path === "/contact" ? (
