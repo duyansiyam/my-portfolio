@@ -50,7 +50,7 @@ body {
   overflow-x: clip;
   background: var(--bg);
   color: var(--text);
-  font-size: 15px;
+  font-size: 14px;
   transition: background-color 0.45s ease, color 0.45s ease;
 }
 
@@ -132,6 +132,13 @@ p {
   transform: translateY(0);
 }
 
+.page-bg h1,
+.page-bg h2,
+.page-bg h3,
+.section-kicker {
+  animation: heading-left-right 0.78s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 .site-header {
   animation: header-enter 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
@@ -152,6 +159,18 @@ p {
   box-shadow: 0 0 0 5px var(--accent-soft);
 }
 
+.site-header {
+  padding: 0.72rem 1rem;
+}
+
+.site-header nav {
+  font-size: 0.86rem;
+}
+
+.site-header nav > a {
+  font-size: 1.2rem;
+}
+
 .wave-hand {
   display: inline-flex;
   color: var(--accent);
@@ -167,16 +186,17 @@ p {
   position: relative;
   isolation: isolate;
   display: inline-flex;
-  min-height: 3.6rem;
-  min-width: 11rem;
+  min-height: 3rem;
+  min-width: 9.5rem;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   border: 1.5px solid var(--text);
   border-radius: 999px;
   background: transparent;
-  padding: 0.9rem 2.25rem;
+  padding: 0.68rem 1.75rem;
   color: var(--text);
+  font-size: 0.88rem;
   font-weight: 550;
   transition:
     color 0.3s ease,
@@ -184,10 +204,10 @@ p {
 }
 
 .fill-button-compact {
-  min-height: 3.15rem;
-  min-width: 10rem;
-  padding: 0.72rem 1.7rem;
-  font-size: 0.95rem;
+  min-height: 2.65rem;
+  min-width: 8.5rem;
+  padding: 0.58rem 1.35rem;
+  font-size: 0.82rem;
 }
 
 .fill-button::before {
@@ -231,19 +251,19 @@ p {
 .section-kicker {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.55rem;
   color: var(--accent);
-  font-size: clamp(0.76rem, 0.9vw, 0.88rem);
+  font-size: clamp(0.68rem, 0.78vw, 0.8rem);
   font-weight: 560;
   text-transform: uppercase;
 }
 
 .section-copy {
-  max-width: 42rem;
-  margin-top: 1.3rem;
+  max-width: 36rem;
+  margin-top: 0.95rem;
   color: var(--muted);
-  font-size: clamp(0.9rem, 1.05vw, 1rem);
-  line-height: 1.65;
+  font-size: clamp(0.82rem, 0.95vw, 0.92rem);
+  line-height: 1.55;
 }
 
 .marquee-shell,
@@ -268,7 +288,7 @@ p {
 
 .marquee-shell {
   position: relative;
-  padding-block: clamp(1.2rem, 3vw, 2.2rem);
+  padding-block: clamp(0.8rem, 2vw, 1.45rem);
   background: var(--bg);
 }
 
@@ -288,10 +308,10 @@ p {
 .marquee-item {
   display: inline-flex;
   align-items: center;
-  gap: clamp(0.8rem, 2vw, 1.5rem);
-  padding-inline: clamp(0.8rem, 2vw, 1.5rem);
+  gap: clamp(0.55rem, 1.35vw, 1rem);
+  padding-inline: clamp(0.55rem, 1.35vw, 1rem);
   color: rgba(245, 245, 247, 0.13);
-  font-size: clamp(1.6rem, 3.6vw, 3.5rem);
+  font-size: clamp(1.25rem, 2.7vw, 2.65rem);
   font-weight: 450;
   line-height: 1;
 }
@@ -335,10 +355,10 @@ p {
 }
 
 .project-device {
-  width: min(100%, 34rem);
+  width: min(100%, 29rem);
   overflow: hidden;
   border: 8px solid rgba(255, 255, 255, 0.72);
-  border-radius: 22px;
+  border-radius: 16px;
   background: #080808;
   box-shadow: 0 28px 45px rgba(0, 0, 0, 0.32);
   transition:
@@ -347,9 +367,9 @@ p {
 }
 
 .project-cover-image {
-  width: min(100%, 34rem);
+  width: min(100%, 29rem);
   max-height: 100%;
-  border-radius: 20px;
+  border-radius: 14px;
   object-fit: cover;
   box-shadow: 0 28px 45px rgba(0, 0, 0, 0.28);
   transition:
@@ -379,8 +399,8 @@ p {
 .project-browser {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.65rem 0.9rem;
+  gap: 0.58rem;
+  padding: 0.5rem 0.72rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   color: rgba(255, 255, 255, 0.62);
   font-size: 0.72rem;
@@ -399,8 +419,8 @@ p {
 }
 
 .project-screen {
-  min-height: clamp(10rem, 24vw, 17rem);
-  padding: clamp(1.25rem, 3vw, 2.5rem);
+  min-height: clamp(8.6rem, 20vw, 14rem);
+  padding: clamp(0.95rem, 2.25vw, 1.9rem);
 }
 
 .project-screen-dark {
@@ -415,10 +435,10 @@ p {
 .project-poster,
 .project-chart,
 .project-avatar {
-  width: min(78%, 18rem);
-  height: clamp(5.2rem, 13vw, 8.8rem);
+  width: min(78%, 15rem);
+  height: clamp(4.3rem, 10.5vw, 7.25rem);
   margin: 0 auto;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 .project-gradient-card {
@@ -521,12 +541,12 @@ p {
 .expertise-card {
   display: block;
   width: 100%;
-  min-height: 4.8rem;
+  min-height: 3.9rem;
   user-select: none;
   border: 1px solid var(--border);
-  border-radius: 18px;
+  border-radius: 12px;
   background: color-mix(in srgb, var(--card) 92%, var(--text) 3%);
-  padding: 1.35rem 1.45rem;
+  padding: 1rem 1.08rem;
   color: var(--text);
   text-align: left;
   transition:
@@ -554,23 +574,23 @@ p {
 }
 
 .tech-marquee-track {
-  gap: 1rem;
+  gap: 0.7rem;
   animation: marquee 28s linear infinite;
 }
 
 .tech-pill {
   display: inline-flex;
-  min-height: 2.6rem;
+  min-height: 2.15rem;
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
-  gap: 0.6rem;
+  gap: 0.45rem;
   border: 1px solid var(--border);
   border-radius: 999px;
   background: color-mix(in srgb, var(--card) 94%, var(--text) 4%);
-  padding: 0.62rem 1.15rem;
+  padding: 0.46rem 0.85rem;
   color: var(--text);
-  font-size: 0.82rem;
+  font-size: 0.76rem;
   font-weight: 560;
   box-shadow: 0 16px 45px rgba(0, 0, 0, 0.14);
 }
@@ -594,9 +614,9 @@ p {
   width: 100%;
   overflow: hidden;
   border: 1px solid color-mix(in srgb, var(--border) 82%, var(--text) 8%);
-  border-radius: 28px;
+  border-radius: 18px;
   background: color-mix(in srgb, var(--card) 94%, var(--text) 3%);
-  padding: clamp(1.65rem, 4vw, 2.65rem);
+  padding: clamp(1.2rem, 2.8vw, 1.9rem);
   color: var(--text);
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.2);
   transition:
@@ -619,22 +639,22 @@ p {
 }
 
 .testimonial-name {
-  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  font-size: clamp(0.95rem, 1.2vw, 1.08rem);
   font-weight: 700;
   line-height: 1.15;
 }
 
 .testimonial-role {
-  margin-top: 0.5rem;
+  margin-top: 0.32rem;
   color: var(--muted);
-  font-size: clamp(0.88rem, 1.2vw, 1rem);
+  font-size: clamp(0.78rem, 1vw, 0.88rem);
   line-height: 1.35;
 }
 
 .testimonial-copy {
-  margin-top: 1.55rem;
+  margin-top: 1.1rem;
   color: var(--muted);
-  font-size: clamp(0.95rem, 1.35vw, 1.08rem);
+  font-size: clamp(0.86rem, 1.05vw, 0.95rem);
   line-height: 1.55;
 }
 
@@ -660,8 +680,8 @@ p {
 
 .testimonial-arrow {
   display: grid;
-  width: 3.25rem;
-  height: 3.25rem;
+  width: 2.65rem;
+  height: 2.65rem;
   place-items: center;
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -681,38 +701,147 @@ p {
 
 .footer-cta {
   display: flex;
-  min-height: clamp(19rem, 34vw, 27rem);
+  min-height: clamp(14rem, 25vw, 20rem);
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border: 1px solid var(--border);
-  border-radius: 28px;
+  border-radius: 18px;
   background: color-mix(in srgb, var(--card) 92%, var(--text) 3%);
-  padding: clamp(2.5rem, 6vw, 5rem) 1.5rem;
+  padding: clamp(1.65rem, 4vw, 3.3rem) 1.15rem;
   text-align: center;
 }
 
 .availability-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.5rem;
   border-radius: 999px;
   background: var(--accent-soft);
-  padding: 0.65rem 1rem;
+  padding: 0.46rem 0.76rem;
   color: var(--text);
-  font-size: 0.9rem;
+  font-size: 0.78rem;
   font-weight: 520;
 }
 
 .availability-badge span {
+  display: inline-block;
+  flex: 0 0 auto;
   width: 0.48rem;
   height: 0.48rem;
   border-radius: 999px;
   background: var(--accent);
 }
 
+#home {
+  min-height: 78vh;
+  padding: 7rem 1.25rem 2.4rem;
+}
+
+#home > div {
+  max-width: 68rem;
+}
+
+#home h1 {
+  max-width: 56rem;
+  margin-top: 1.9rem;
+  font-size: clamp(2rem, 5.1vw, 4.45rem);
+  line-height: 1.04;
+}
+
+#home p,
+#projects p,
+.testimonial-intro p,
+.footer-cta + div,
+.footer-cta p {
+  font-size: clamp(0.82rem, 1vw, 0.94rem);
+  line-height: 1.55;
+}
+
+#home .border-t {
+  margin-top: 3.1rem;
+  gap: 1.35rem;
+  padding-top: 1.8rem;
+}
+
+#home .uppercase {
+  gap: 0.9rem 1.4rem;
+  font-size: 0.74rem;
+}
+
+#home-highlight {
+  min-height: 82vh;
+}
+
+#home-highlight .sticky {
+  min-height: 82vh;
+  padding-block: 4.5rem;
+}
+
+#home-highlight h2 {
+  max-width: 54rem;
+  font-size: clamp(1rem, 1.8vw, 1.55rem);
+  line-height: 1.5;
+}
+
+#projects {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+#projects h2,
+.testimonial-intro h2,
+.footer-cta h2 {
+  font-size: clamp(1.75rem, 3.2vw, 3.15rem);
+  line-height: 1.04;
+}
+
+.home-projects-grid {
+  gap: clamp(1.4rem, 3.2vw, 3rem);
+  margin-top: 3.1rem;
+}
+
+.home-projects-grid article:nth-child(even) {
+  margin-top: clamp(1.5rem, 4vw, 4.5rem);
+}
+
+.project-preview {
+  min-height: clamp(13rem, 24vw, 19rem);
+  border-radius: 18px;
+  padding: clamp(1rem, 2vw, 1.6rem);
+}
+
+.home-projects-grid h3 {
+  font-size: clamp(1rem, 1.35vw, 1.25rem);
+}
+
+.home-projects-grid .mt-7 {
+  margin-top: 1.1rem;
+}
+
+.home-projects-grid .mt-4 {
+  margin-top: 0.75rem;
+}
+
+.home-projects-grid .rounded-full {
+  padding: 0.38rem 0.7rem;
+  font-size: 0.72rem;
+}
+
+.expertise-visual {
+  border-radius: 18px;
+}
+
+.expertise-visual img {
+  min-height: 17rem;
+}
+
+.testimonial-intro p:last-child {
+  margin-top: 1.4rem;
+}
+
 .about-page {
-  padding: 6.5rem 1.5rem 2.25rem;
+  padding: 5.6rem 1.25rem 1.8rem;
 }
 
 .about-hero,
@@ -727,8 +856,8 @@ p {
   display: grid;
   grid-template-columns: minmax(18rem, 30rem) minmax(0, 1fr);
   align-items: center;
-  gap: clamp(2rem, 4.5vw, 4.75rem);
-  padding-block: clamp(2.5rem, 5vw, 4.5rem);
+  gap: clamp(1.5rem, 3.2vw, 3.4rem);
+  padding-block: clamp(1.75rem, 3.6vw, 3rem);
 }
 
 .about-portrait {
@@ -776,8 +905,8 @@ p {
 }
 
 .about-hero-copy h1 {
-  max-width: 46rem;
-  font-size: clamp(2.25rem, 4.4vw, 4.25rem);
+  max-width: 39rem;
+  font-size: clamp(1.85rem, 3.5vw, 3.35rem);
   font-weight: 460;
   letter-spacing: 0;
   line-height: 1.03;
@@ -788,26 +917,26 @@ p {
 }
 
 .about-hero-copy p {
-  max-width: 42rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1.6rem;
+  max-width: 34rem;
+  margin-top: 1.1rem;
+  margin-bottom: 1.2rem;
   color: var(--muted);
-  font-size: clamp(0.9rem, 1.05vw, 1rem);
-  line-height: 1.65;
+  font-size: clamp(0.82rem, 0.95vw, 0.92rem);
+  line-height: 1.55;
 }
 
 .about-split {
   display: grid;
   grid-template-columns: minmax(16rem, 0.55fr) 1fr;
-  gap: clamp(2rem, 4vw, 4rem);
-  padding-block: clamp(2.75rem, 5vw, 4.75rem);
+  gap: clamp(1.45rem, 3vw, 3rem);
+  padding-block: clamp(1.9rem, 3.6vw, 3.4rem);
 }
 
 .about-split h2,
 .about-process h2 {
-  margin-top: 1.25rem;
+  margin-top: 0.9rem;
   color: var(--text);
-  font-size: clamp(2rem, 3.6vw, 3.35rem);
+  font-size: clamp(1.6rem, 2.8vw, 2.65rem);
   font-weight: 460;
   letter-spacing: 0;
   line-height: 1;
@@ -827,14 +956,14 @@ p {
 
 .experience-row {
   grid-template-columns: auto 1fr auto;
-  gap: 1.25rem;
-  padding-block: 1.15rem;
+  gap: 0.9rem;
+  padding-block: 0.85rem;
 }
 
 .experience-logo {
   display: grid;
-  width: 3.25rem;
-  height: 3.25rem;
+  width: 2.65rem;
+  height: 2.65rem;
   place-items: center;
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -870,34 +999,34 @@ p {
 }
 
 .about-process {
-  padding-block: clamp(2.75rem, 5vw, 4.75rem);
+  padding-block: clamp(1.9rem, 3.6vw, 3.4rem);
 }
 
 .process-track {
   display: grid;
-  grid-auto-columns: minmax(17rem, 23rem);
+  grid-auto-columns: minmax(14.5rem, 19rem);
   grid-auto-flow: column;
-  gap: 1.25rem;
-  margin-top: 2.1rem;
+  gap: 0.95rem;
+  margin-top: 1.5rem;
   overflow-x: auto;
   padding-bottom: 1rem;
   scroll-snap-type: x mandatory;
 }
 
 .process-card {
-  min-height: 15rem;
+  min-height: 12.5rem;
   user-select: none;
   border: 1px solid var(--border);
-  border-radius: 28px;
+  border-radius: 16px;
   background: color-mix(in srgb, var(--card) 92%, var(--text) 3%);
-  padding: 1.6rem;
+  padding: 1.15rem;
   scroll-snap-align: start;
 }
 
 .process-icon {
   display: grid;
-  width: 4rem;
-  height: 4rem;
+  width: 3.2rem;
+  height: 3.2rem;
   place-items: center;
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -911,17 +1040,17 @@ p {
 }
 
 .process-card h3 {
-  margin-top: 1.4rem;
+  margin-top: 1rem;
 }
 
 .process-card p {
-  margin-top: 0.8rem;
+  margin-top: 0.6rem;
 }
 
 .award-row {
   grid-template-columns: 1fr auto;
   gap: 1rem;
-  padding-block: 1.1rem;
+  padding-block: 0.82rem;
 }
 
 .about-footer {
@@ -930,7 +1059,7 @@ p {
 
 .contact-page {
   min-height: 100vh;
-  padding: 6.5rem 1.5rem 2rem;
+  padding: 5.6rem 1.25rem 1.6rem;
 }
 
 .contact-shell {
@@ -943,10 +1072,10 @@ p {
 }
 
 .contact-form-panel h1 {
-  max-width: 28rem;
-  margin-top: 0.75rem;
+  max-width: 24rem;
+  margin-top: 0.6rem;
   color: var(--text);
-  font-size: clamp(2rem, 3.2vw, 3.25rem);
+  font-size: clamp(1.65rem, 2.65vw, 2.65rem);
   font-weight: 520;
   letter-spacing: 0;
   line-height: 1.04;
@@ -1021,7 +1150,7 @@ p {
 
 .contact-info-card {
   border: 1px solid color-mix(in srgb, var(--border) 62%, transparent);
-  border-radius: 20px;
+  border-radius: 14px;
   background: color-mix(in srgb, var(--card) 94%, var(--text) 3%);
   padding: clamp(1.05rem, 2vw, 1.5rem);
   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.16);
@@ -1082,13 +1211,13 @@ p {
 .projects-page {
   width: min(100%, 96rem);
   margin-inline: auto;
-  padding: 6.5rem 1.5rem 3rem;
+  padding: 5.6rem 1.25rem 2.25rem;
 }
 
 .projects-hero h1 {
-  max-width: 42rem;
-  margin-top: 1.5rem;
-  font-size: clamp(2rem, 3.5vw, 3.25rem);
+  max-width: 34rem;
+  margin-top: 1rem;
+  font-size: clamp(1.65rem, 2.8vw, 2.65rem);
   font-weight: 460;
   line-height: 1.12;
 }
@@ -1097,20 +1226,20 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
-  margin-top: clamp(2rem, 4vw, 3.5rem);
+  gap: 1rem;
+  margin-top: clamp(1.35rem, 2.7vw, 2.35rem);
 }
 
 .project-search-trigger {
   display: inline-flex;
-  min-height: 3.3rem;
+  min-height: 2.7rem;
   align-items: center;
   justify-content: center;
-  gap: 0.7rem;
+  gap: 0.5rem;
   border: 1px solid var(--border);
   border-radius: 999px;
   background: transparent;
-  padding-inline: 1.35rem;
+  padding-inline: 1rem;
   color: var(--text);
   font-size: 0.86rem;
   transition:
@@ -1134,8 +1263,8 @@ p {
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(1.5rem, 3.5vw, 3rem);
-  margin-top: 2.5rem;
+  gap: clamp(1.1rem, 2.5vw, 2.1rem);
+  margin-top: 1.75rem;
 }
 
 .project-tile:hover {
@@ -1144,12 +1273,12 @@ p {
 
 .project-page-preview {
   display: flex;
-  min-height: clamp(15rem, 27vw, 22rem);
+  min-height: clamp(12rem, 22vw, 18rem);
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border-radius: 28px;
-  padding: clamp(1.3rem, 3vw, 2.6rem);
+  border-radius: 18px;
+  padding: clamp(0.95rem, 2.2vw, 1.9rem);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.3),
     0 28px 80px rgba(0, 0, 0, 0.16);
@@ -1176,7 +1305,7 @@ p {
   align-items: end;
   justify-content: space-between;
   gap: 1rem;
-  margin-top: 1rem;
+  margin-top: 0.78rem;
 }
 
 .project-tile-meta h2 {
@@ -1216,7 +1345,7 @@ p {
   width: min(100%, 46rem);
   overflow: hidden;
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: 12px;
   background: color-mix(in srgb, var(--card) 94%, var(--text) 3%);
   box-shadow: 0 28px 90px rgba(0, 0, 0, 0.38);
   animation: command-enter 0.22s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -1224,7 +1353,7 @@ p {
 
 .search-command-top {
   display: flex;
-  min-height: 4.25rem;
+  min-height: 3.4rem;
   align-items: center;
   gap: 0.8rem;
   border-bottom: 1px solid var(--border);
@@ -1239,7 +1368,7 @@ p {
   outline: 0;
   background: transparent;
   color: var(--text);
-  font-size: 1.18rem;
+  font-size: 0.98rem;
 }
 
 .search-command-top input::placeholder {
@@ -1266,7 +1395,7 @@ p {
 
 .search-command-bottom {
   display: flex;
-  min-height: 4.25rem;
+  min-height: 3.5rem;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
@@ -1307,8 +1436,8 @@ p {
 }
 
 .phone-mockup {
-  width: min(38%, 8.5rem);
-  min-width: 6.5rem;
+  width: min(36%, 7.2rem);
+  min-width: 5.7rem;
   aspect-ratio: 0.48;
   border: 6px solid #151515;
   border-radius: 2rem;
@@ -1370,6 +1499,17 @@ p {
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes heading-left-right {
+  from {
+    opacity: 0;
+    transform: translateX(-18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 

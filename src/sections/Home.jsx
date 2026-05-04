@@ -21,6 +21,7 @@ import {
   Workflow,
 } from "lucide-react";
 import portfolioCover from "../assets/Portfolio.png";
+import soulfmCover from "../assets/soulfm.png";
 import taaraCover from "../assets/taara.png";
 
 const highlightText =
@@ -42,6 +43,8 @@ const projects = [
     ],
     bg: "bg-[#9f3f2f]",
     preview: "audio",
+    image: soulfmCover,
+    imageClassName: "project-cover-image-soul",
     url: "https://www.soulfmlive.com/",
   },
   {

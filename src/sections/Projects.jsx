@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Search, Sparkle } from "lucide-react";
 import sourceCover from "../assets/source.png";
+import soulfmCover from "../assets/soulfm.png";
 import taaraCover from "../assets/taara.png";
 
 const projects = [
@@ -10,6 +11,8 @@ const projects = [
     year: "2026",
     tone: "project-rust",
     mockup: "phones",
+    image: soulfmCover,
+    imageClassName: "project-cover-image-soul",
     url: "https://www.soulfmlive.com/",
   },
   {
