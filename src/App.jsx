@@ -27,11 +27,16 @@ function App() {
   const navigate = (to) => {
     const nextPath = normalizePath(to);
 
-    if (nextPath === path) return;
+    if (nextPath === path) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
 
     window.history.pushState({}, "", nextPath);
     setPath(nextPath);
-    window.scrollTo({ top: 0, behavior: "instant" });
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
   };
 
   return (

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Search, Sparkle } from "lucide-react";
+import ScrollWords from "../components/ScrollWords";
 import sourceCover from "../assets/source.png";
 import soulfmCover from "../assets/soulfm.png";
 import taaraCover from "../assets/taara.png";
@@ -76,11 +77,10 @@ export default function Projects() {
   return (
     <main className="projects-page page-bg">
       <section className="projects-hero reveal is-visible">
-        <p className="section-kicker">
+        <ScrollWords as="p" text="My Work" className="section-kicker">
           <Sparkle size={22} />
-          My Work
-        </p>
-        <h1>Creating next level digital products</h1>
+        </ScrollWords>
+        <ScrollWords as="h1" text="Creating next level digital products" />
 
         <div className={`projects-toolbar ${isSearchOpen ? "is-searching" : ""}`}>
           <button

@@ -4,6 +4,7 @@ import {
   MessageCircle,
   Sparkle,
 } from "lucide-react";
+import ScrollWords from "../components/ScrollWords";
 import aboutPortrait from "../assets/Portfolio.png";
 
 const contactDetails = [
@@ -65,12 +66,15 @@ export default function Contact() {
     <main className="contact-page page-bg">
       <section className="contact-shell reveal is-visible">
         <div className="contact-form-panel">
-          <p className="section-kicker">
+          <ScrollWords
+            as="p"
+            text="Connect With Me"
+            className="section-kicker"
+          >
             <Sparkle size={22} />
-            Connect With Me
-          </p>
+          </ScrollWords>
 
-          <h1>Let's start a project together</h1>
+          <ScrollWords as="h1" text="Let's start a project together" />
 
           <form className="contact-form" onSubmit={sendMessage}>
             <label>

@@ -7,7 +7,9 @@ import {
   Sparkle,
   Wand2,
 } from "lucide-react";
+import ScrollWords from "../components/ScrollWords";
 import aboutPortrait from "../assets/Portfolio.png";
+import resumeFile from "../assets/Resume_Janine.pdf";
 
 const experience = [
   {
@@ -133,16 +135,21 @@ export default function About({ onNavigate }) {
         </div>
 
         <div className="about-hero-copy">
-          <h1>
-            A <span>creative full stack</span> web developer
-          </h1>
+          <ScrollWords
+            as="h1"
+            parts={[
+              "A",
+              { text: "creative full stack", className: "text-accent" },
+              "web developer",
+            ]}
+          />
           <p>
             I collaborate with brands and teams to design impactful,
             mission-focused websites that drive results and achieve business
             goals.
           </p>
           <a
-            href="/Resume_Duyab.pdf"
+            href={resumeFile}
             target="_blank"
             rel="noreferrer"
             className="fill-button fill-button-compact"
@@ -154,11 +161,10 @@ export default function About({ onNavigate }) {
 
       <section className="about-split reveal">
         <div>
-          <p className="section-kicker">
+          <ScrollWords as="p" text="Work History" className="section-kicker">
             <Sparkle size={22} />
-            Work History
-          </p>
-          <h2>Experience</h2>
+          </ScrollWords>
+          <ScrollWords as="h2" text="Experience" />
           <p className="section-copy">
             I have worked on web, design, and system projects focused on
             thoughtful experiences and clean implementation.
@@ -180,11 +186,10 @@ export default function About({ onNavigate }) {
       </section>
 
       <section className="about-process reveal">
-        <p className="section-kicker">
+        <ScrollWords as="p" text="Steps I Follow" className="section-kicker">
           <Sparkle size={22} />
-          Steps I Follow
-        </p>
-        <h2>My Design Process</h2>
+        </ScrollWords>
+        <ScrollWords as="h2" text="My Design Process" />
         <p className="section-copy">
           A simple, repeatable workflow that keeps projects focused from first
           idea to final launch.
@@ -203,11 +208,10 @@ export default function About({ onNavigate }) {
 
       <section className="about-split awards-section reveal">
         <div>
-          <p className="section-kicker">
+          <ScrollWords as="p" text="Awards" className="section-kicker">
             <Sparkle size={22} />
-            Awards
-          </p>
-          <h2>Awards &amp; Recognition</h2>
+          </ScrollWords>
+          <ScrollWords as="h2" text="Awards & Recognition" />
         </div>
 
         <div className="awards-list">
@@ -229,9 +233,11 @@ export default function About({ onNavigate }) {
             Available for work
           </p>
 
-          <h2 className="mx-auto mt-7 max-w-2xl text-center text-4xl font-medium leading-tight md:text-6xl">
-            Let's create your next big idea.
-          </h2>
+          <ScrollWords
+            as="h2"
+            text="Let's create your next big idea."
+            className="mx-auto mt-7 max-w-2xl text-center text-4xl font-medium leading-tight md:text-6xl"
+          />
 
           <a href="/contact" onClick={openContactPage} className="fill-button mt-10">
             <span>Contact Me</span>

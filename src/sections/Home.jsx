@@ -20,6 +20,7 @@ import {
   Sparkle,
   Workflow,
 } from "lucide-react";
+import ScrollWords from "../components/ScrollWords";
 import portfolioCover from "../assets/Portfolio.png";
 import soulfmCover from "../assets/soulfm.png";
 import taaraCover from "../assets/taara.png";
@@ -280,11 +281,17 @@ export default function Home({ onNavigate }) {
             <span>Hey! It's me Janine,</span>
           </div>
 
-          <h1 className="mt-10 max-w-5xl text-4xl font-medium leading-[1.08] md:text-6xl lg:text-7xl">
-            Crafting{" "}
-            <span className="text-accent">web solutions</span> that{" "}
-            <span className="text-accent">build, connect</span> &amp; grow.
-          </h1>
+          <ScrollWords
+            as="h1"
+            className="mt-10 max-w-5xl text-4xl font-medium leading-[1.08] md:text-6xl lg:text-7xl"
+            parts={[
+              "Crafting",
+              { text: "web solutions", className: "text-accent" },
+              "that",
+              { text: "build, connect", className: "text-accent" },
+              "& grow.",
+            ]}
+          />
 
           <div className="mt-16 grid gap-8 border-t border-soft pt-10 lg:grid-cols-[1fr_1fr] lg:items-start">
             <div className="flex flex-wrap gap-x-8 gap-y-4 text-sm font-medium uppercase text-muted md:text-base">
@@ -369,14 +376,19 @@ export default function Home({ onNavigate }) {
       {/* PROJECTS */}
       <section id="projects" className="mx-auto max-w-7xl px-6 pb-12 pt-8 md:px-10 lg:pb-16 lg:pt-10">
         <div className="reveal">
-          <p className="mb-5 inline-flex items-center gap-3 text-sm font-medium uppercase text-accent md:text-lg">
+          <ScrollWords
+            as="p"
+            text="My Work"
+            className="mb-5 inline-flex items-center gap-3 text-sm font-medium uppercase text-accent md:text-lg"
+          >
             <Sparkle size={22} strokeWidth={2.3} />
-            My Work
-          </p>
+          </ScrollWords>
 
-          <h2 className="max-w-3xl text-4xl font-medium leading-none md:text-5xl lg:text-6xl">
-            Selected Projects
-          </h2>
+          <ScrollWords
+            as="h2"
+            text="Selected Projects"
+            className="max-w-3xl text-4xl font-medium leading-none md:text-5xl lg:text-6xl"
+          />
           <p className="mt-5 max-w-2xl text-base leading-7 text-muted md:text-lg">
             Here's a curated selection showcasing my expertise and the achieved
             results.
@@ -442,14 +454,19 @@ export default function Home({ onNavigate }) {
       {/* EXPERTISE */}
       <section className="mx-auto max-w-7xl px-6 py-14 md:px-10 lg:py-20">
         <div className="reveal">
-          <p className="mb-5 inline-flex items-center gap-3 text-sm font-medium uppercase text-accent md:text-lg">
+          <ScrollWords
+            as="p"
+            text="Speciality"
+            className="mb-5 inline-flex items-center gap-3 text-sm font-medium uppercase text-accent md:text-lg"
+          >
             <Sparkle size={22} strokeWidth={2.3} />
-            Speciality
-          </p>
+          </ScrollWords>
 
-        <h2 className="text-3xl font-medium leading-none md:text-4xl lg:text-5xl">
-            Areas of Expertise
-          </h2>
+          <ScrollWords
+            as="h2"
+            text="Areas of Expertise"
+            className="text-3xl font-medium leading-none md:text-4xl lg:text-5xl"
+          />
         </div>
 
         <div className="reveal mt-14 grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-stretch">
@@ -511,14 +528,19 @@ export default function Home({ onNavigate }) {
       <section className="mx-auto max-w-7xl px-6 py-14 md:px-10 lg:py-20">
         <div className="reveal grid gap-10 lg:grid-cols-[0.8fr_1.45fr] lg:items-start">
           <div className="testimonial-intro">
-            <p className="mb-5 inline-flex items-center gap-3 text-sm font-medium uppercase text-accent md:text-lg">
+            <ScrollWords
+              as="p"
+              text="Testimonials"
+              className="mb-5 inline-flex items-center gap-3 text-sm font-medium uppercase text-accent md:text-lg"
+            >
               <Sparkle size={22} strokeWidth={2.3} />
-              Testimonials
-            </p>
+            </ScrollWords>
 
-              <h2 className="text-4xl font-medium leading-[1.08] md:text-5xl">
-              What others say
-            </h2>
+            <ScrollWords
+              as="h2"
+              text="What others say"
+              className="text-4xl font-medium leading-[1.08] md:text-5xl"
+            />
             <p className="mt-8 max-w-md text-base leading-7 text-muted">
               I've worked with some amazing people over the years, here is what
               they have to say about me.
@@ -623,9 +645,11 @@ export default function Home({ onNavigate }) {
             Available for work
           </p>
 
-          <h2 className="mx-auto mt-7 max-w-2xl text-center text-3xl font-medium leading-tight md:text-5xl">
-            Let's create your next big idea.
-          </h2>
+          <ScrollWords
+            as="h2"
+            text="Let's create your next big idea."
+            className="mx-auto mt-7 max-w-2xl text-center text-3xl font-medium leading-tight md:text-5xl"
+          />
 
           <a
             href="/contact"
